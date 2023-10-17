@@ -1,0 +1,10 @@
+---
+keycloak_version: 20.0.3
+keycloak_destination_path: /appli/keycloak
+keycloak_admin_username: admin
+keycloak_admin_password: admin
+keycloak_url: http://127.0.0.1
+keycloak_realm: IMT
+moodle_url: http://127.0.0.1
+moodle_redirect_url: 127.0.0.1
+

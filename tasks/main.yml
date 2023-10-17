@@ -1,0 +1,17 @@
+---
+- name: Authenticate with Keycloak
+  become: yes
+  command:
+    cmd: "{{keycloak_destination_path}}/keycloak-{{keycloak_version}}/bin/kcadm.sh config credentials --server {{keycloak_url}} --realm master --user {{keycloak_admin_username}} --password {{keycloak_admin_password}}"
+
+- name: Copy client_moodle.json.j2 template
+  become: yes
+  template:
+    src: client_moodle.json.j2
+    dest: "/tmp/client_moodle.json"
+
+- name: Import moodle client
+  become: yes
+  command:
+    cmd: "{{keycloak_destination_path}}/keycloak-{{keycloak_version}}/bin/kcadm.sh create clients -r {{keycloak_realm}} -f /tmp/client_moodle.json"
+  ignore_errors: yes

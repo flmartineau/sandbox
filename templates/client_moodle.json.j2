@@ -1,0 +1,99 @@
+{
+  "clientId": "{{moodle_url}}",
+  "name": "moodle",
+  "description": "Moodle",
+  "rootUrl": "",
+  "adminUrl": "",
+  "baseUrl": "{{moodle_url}}",
+  "surrogateAuthRequired": false,
+  "enabled": true,
+  "alwaysDisplayInConsole": false,
+  "clientAuthenticatorType": "client-secret",
+  "redirectUris": [
+    "{{moodle_url}}/auth/saml2/sp/saml2-acs.php/{{moodle_redirect_url}}"
+  ],
+  "webOrigins": [],
+  "notBefore": 0,
+  "bearerOnly": false,
+  "consentRequired": false,
+  "standardFlowEnabled": true,
+  "implicitFlowEnabled": false,
+  "directAccessGrantsEnabled": true,
+  "serviceAccountsEnabled": false,
+  "publicClient": true,
+  "frontchannelLogout": true,
+  "protocol": "saml",
+  "attributes": {
+    "saml.assertion.signature": "true",
+    "saml.force.post.binding": "true",
+    "saml_single_logout_service_url_post": "{{moodle_url}}/auth/saml2/sp/saml2-logout.php/{{moodle_redirect_url}}",
+    "saml.encrypt": "false",
+    "post.logout.redirect.uris": "{{moodle_url}}/auth/saml2/sp/saml2-logout.php/{{moodle_redirect_url}}",
+    "saml_assertion_consumer_url_post": "{{moodle_url}}/auth/saml2/sp/saml2-acs.php/{{moodle_redirect_url}}",
+    "saml.server.signature": "true",
+    "saml.server.signature.keyinfo.ext": "false",
+    "saml.artifact.binding.identifier": "YxUap2qjlkTDgXlh33kO3WCTw5s=",
+    "saml.artifact.binding": "false",
+    "saml.signature.algorithm": "RSA_SHA256",
+    "saml_force_name_id_format": "false",
+    "saml.server.signature.keyinfo$xmlSigKeyInfoKeyNameTransformer": "NONE",
+    "saml.client.signature": "false",
+    "saml.force.name.id.format": "true",
+    "saml.authnstatement": "true",
+    "display.on.consent.screen": "false",
+    "saml_name_id_format": "email",
+    "saml.allow.ecp.flow": "false",
+    "saml_signature_canonicalization_method": "http://www.w3.org/2001/10/xml-exc-c14n#",
+    "saml.onetimeuse.condition": "false"
+  },
+  "authenticationFlowBindingOverrides": {},
+  "fullScopeAllowed": true,
+  "nodeReRegistrationTimeout": -1,
+  "protocolMappers": [
+    {
+      "name": "X500 email",
+      "protocol": "saml",
+      "protocolMapper": "saml-user-property-mapper",
+      "consentRequired": false,
+      "config": {
+        "attribute.nameformat": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "user.attribute": "email",
+        "friendly.name": "email",
+        "attribute.name": "urn:oid:1.2.840.113549.1.9.1"
+      }
+    },
+    {
+      "name": "X500 givenName",
+      "protocol": "saml",
+      "protocolMapper": "saml-user-property-mapper",
+      "consentRequired": false,
+      "config": {
+        "attribute.nameformat": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "user.attribute": "firstName",
+        "friendly.name": "",
+        "attribute.name": "firstName"
+      }
+    },
+    {
+      "name": "X500 surname",
+      "protocol": "saml",
+      "protocolMapper": "saml-user-property-mapper",
+      "consentRequired": false,
+      "config": {
+        "attribute.nameformat": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+        "user.attribute": "lastName",
+        "friendly.name": "",
+        "attribute.name": "lastName"
+      }
+    }
+  ],
+  "defaultClientScopes": [
+    "role_list"
+  ],
+  "optionalClientScopes": [],
+  "access": {
+    "view": true,
+    "configure": true,
+    "manage": true
+  }
+}
